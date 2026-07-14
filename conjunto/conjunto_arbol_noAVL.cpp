@@ -1,13 +1,13 @@
-#include "conjunto_bst.h"
+#include "conjunto_arbol_noAVL.h"
 
 template <typename T>
-ConjuntoBST<T>::ConjuntoBST() {
+Conjunto<T>::Conjunto() {
     raiz = nullptr;
     cantidad = 0;
 }
 
 template <typename T>
-void ConjuntoBST<T>::destruir(typename ConjuntoBST<T>::Nodo* n) {
+void Conjunto<T>::destruir(typename Conjunto<T>::Nodo* n) {
     if (n == nullptr) return;
     destruir(n->izq);
     destruir(n->der);
@@ -15,12 +15,12 @@ void ConjuntoBST<T>::destruir(typename ConjuntoBST<T>::Nodo* n) {
 }
 
 template <typename T>
-ConjuntoBST<T>::~ConjuntoBST() {
+Conjunto<T>::~Conjunto() {
     destruir(raiz);
 }
 
 template <typename T>
-typename ConjuntoBST<T>::Nodo* ConjuntoBST<T>::insertar(typename ConjuntoBST<T>::Nodo* n, const T& e, bool& insertado) {
+typename Conjunto<T>::Nodo* Conjunto<T>::insertar(typename Conjunto<T>::Nodo* n, const T& e, bool& insertado) {
     if (n == nullptr) {
         Nodo* nuevo = new Nodo;
         nuevo->dato = e;
@@ -43,7 +43,7 @@ typename ConjuntoBST<T>::Nodo* ConjuntoBST<T>::insertar(typename ConjuntoBST<T>:
 }
 
 template <typename T>
-void ConjuntoBST<T>::agregar(const T& e) {
+void Conjunto<T>::agregar(const T& e) {
     bool insertado = false;
     raiz = insertar(raiz, e, insertado);
     if (insertado){
@@ -52,13 +52,13 @@ void ConjuntoBST<T>::agregar(const T& e) {
 }
 
 template <typename T>
-typename ConjuntoBST<T>::Nodo* ConjuntoBST<T>::minimo(typename ConjuntoBST<T>::Nodo* n) const {
+typename Conjunto<T>::Nodo* Conjunto<T>::minimo(typename Conjunto<T>::Nodo* n) const {
     while (n->izq != nullptr) n = n->izq;
     return n;
 }
 
 template <typename T>
-typename ConjuntoBST<T>::Nodo* ConjuntoBST<T>::eliminar(typename ConjuntoBST<T>::Nodo* n, const T& e, bool& eliminado) {
+typename Conjunto<T>::Nodo* Conjunto<T>::eliminar(typename Conjunto<T>::Nodo* n, const T& e, bool& eliminado) {
     if (n == nullptr) {
         eliminado = false;
         return nullptr;
@@ -92,14 +92,14 @@ typename ConjuntoBST<T>::Nodo* ConjuntoBST<T>::eliminar(typename ConjuntoBST<T>:
 }
 
 template <typename T>
-void ConjuntoBST<T>::quitar(const T& e) {
+void Conjunto<T>::quitar(const T& e) {
     bool eliminado = false;
     raiz = eliminar(raiz, e, eliminado);
     if (eliminado) --cantidad;
 }
 
 template <typename T>
-bool ConjuntoBST<T>::buscar(typename ConjuntoBST<T>::Nodo* n, const T& e) const {
+bool Conjunto<T>::buscar(typename Conjunto<T>::Nodo* n, const T& e) const {
     if (n == nullptr) return false;
     if (e == n->dato) return true;
     if (e < n->dato) return buscar(n->izq, e);
@@ -107,17 +107,17 @@ bool ConjuntoBST<T>::buscar(typename ConjuntoBST<T>::Nodo* n, const T& e) const 
 }
 
 template <typename T>
-bool ConjuntoBST<T>::pertenece(const T& e) const {
+bool Conjunto<T>::pertenece(const T& e) const {
     return buscar(raiz, e);
 }
 
 template <typename T>
-int ConjuntoBST<T>::tamanio() const {
+int Conjunto<T>::tamanio() const {
     return cantidad;
 }
 
 template <typename T>
-void ConjuntoBST<T>::inorden(typename ConjuntoBST<T>::Nodo* n, ConjuntoBST<T>& destino) const {
+void Conjunto<T>::inorden(typename Conjunto<T>::Nodo* n, Conjunto<T>& destino) const {
     if (n == nullptr) return;
     inorden(n->izq, destino);
     destino.agregar(n->dato);
@@ -125,6 +125,6 @@ void ConjuntoBST<T>::inorden(typename ConjuntoBST<T>::Nodo* n, ConjuntoBST<T>& d
 }
 
 template <typename T>
-void ConjuntoBST<T>::unionCon(const ConjuntoBST<T>& otro) {
+void Conjunto<T>::unionCon(const Conjunto<T>& otro) {
     inorden(otro.raiz, *this);
 }

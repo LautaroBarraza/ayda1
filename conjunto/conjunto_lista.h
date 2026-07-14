@@ -1,8 +1,6 @@
 #ifndef CONJUNTO_LISTA_H
 #define CONJUNTO_LISTA_H
 
-// TDA Conjunto implementado con lista enlazada simple (sin orden).
-// agregar/quitar/pertenece: O(n). tamanio: O(1). unionCon: O(n*m).
 template <typename T>
 class ConjuntoLista {
 public:

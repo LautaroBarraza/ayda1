@@ -1,4 +1,5 @@
 // Constructor: conjunto vacio
+#include "conjunto_lista.h"
 template <typename T>
 ConjuntoLista<T>::ConjuntoLista() {
     primero = nullptr;

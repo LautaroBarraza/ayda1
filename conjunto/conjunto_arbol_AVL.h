@@ -42,6 +42,6 @@ private:
     void inorden(Nodo* n, ConjuntoAVL<T>& destino) const;
 };
 
-#include "conjunto_avl.cpp"
+#include "conjunto_arbol_AVL.cpp"
 
 #endif

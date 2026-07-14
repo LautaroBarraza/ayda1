@@ -5,18 +5,18 @@
 // Requiere que T tenga operator< y operator== (orden total).
 // agregar/quitar/pertenece: O(h), h = altura del arbol.
 //   - Mejor/promedio caso: O(log n).
-//   - Peor caso (arbol degenerado, ej. insertar datos ya ordenados): O(n).
+//   - Peor caso (insertar datos ya ordenados): O(n).
 // tamanio: O(1). unionCon: O(m*h).
 template <typename T>
-class ConjuntoBST {
+class Conjunto {
 public:
-    ConjuntoBST();
-    ~ConjuntoBST();
+    Conjunto();
+    ~Conjunto();
     void agregar(const T& e);
     void quitar(const T& e);
     bool pertenece(const T& e) const;
     int tamanio() const;
-    void unionCon(const ConjuntoBST<T>& otro);
+    void unionCon(const Conjunto<T>& otro);
 
 private:
     struct Nodo {
@@ -32,9 +32,9 @@ private:
     Nodo* minimo(Nodo* n) const;
     bool buscar(Nodo* n, const T& e) const;
     void destruir(Nodo* n);
-    void inorden(Nodo* n, ConjuntoBST<T>& destino) const;
+    void inorden(Nodo* n, Conjunto<T>& destino) const;
 };
 
-#include "conjunto_bst.cpp"
+#include "conjunto_arbol_noAVL.cpp"
 
 #endif

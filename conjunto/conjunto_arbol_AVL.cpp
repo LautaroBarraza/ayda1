@@ -1,3 +1,4 @@
+#include "conjunto_arbol_AVL.h"
 template <typename T>
 ConjuntoAVL<T>::ConjuntoAVL() {
     raiz = nullptr;
