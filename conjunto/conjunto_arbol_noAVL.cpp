@@ -83,7 +83,7 @@ typename Conjunto<T>::Nodo* Conjunto<T>::eliminar(typename Conjunto<T>::Nodo* n,
         delete n;
         return aux;
     }
-    // dos hijos: reemplazar por el sucesor inorden (minimo del subarbol derecho)
+    // dos hijos: reemplazar por el sucesor minimo del subarbol derecho
     Nodo* sucesor = minimo(n->der);
     n->dato = sucesor->dato;
     bool aux;

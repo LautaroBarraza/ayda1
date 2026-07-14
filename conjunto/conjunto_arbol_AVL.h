@@ -1,11 +1,12 @@
 #ifndef CONJUNTO_AVL_H
 #define CONJUNTO_AVL_H
 
-// TDA Conjunto implementado con arbol AVL (BST autobalanceado).
-// Requiere que T tenga operator< y operator== (orden total).
-// agregar/quitar/pertenece: O(log n) garantizado en TODOS los casos,
-// gracias a las rotaciones que mantienen |altura(izq)-altura(der)| <= 1
-// en cada nodo. tamanio: O(1). unionCon: O(m*log n).
+/* TDA Conjunto implementado con arbol AVL (BST autobalanceado).
+    Requiere que T tenga operator< y operator== (orden total).
+    agregar/quitar/pertenece: O(log n) en TODOS los casos,
+    gracias a las rotaciones que mantienen |altura(izq)-altura(der)| <= 1
+    en cada nodo. tamanio: O(1). unionCon: O(m*log n).
+ */
 template <typename T>
 class ConjuntoAVL {
 public:

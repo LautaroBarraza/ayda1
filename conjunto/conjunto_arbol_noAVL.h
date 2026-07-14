@@ -1,12 +1,13 @@
 #ifndef CONJUNTO_BST_H
 #define CONJUNTO_BST_H
 
-// TDA Conjunto implementado con arbol binario de busqueda SIN balanceo.
-// Requiere que T tenga operator< y operator== (orden total).
-// agregar/quitar/pertenece: O(h), h = altura del arbol.
-//   - Mejor/promedio caso: O(log n).
-//   - Peor caso (insertar datos ya ordenados): O(n).
-// tamanio: O(1). unionCon: O(m*h).
+/*TDA Conjunto implementado con arbol binario de busqueda SIN balanceo.
+    Requiere que T tenga operator< y operator== (orden total).
+    agregar/quitar/pertenece: O(h), h = altura del arbol.
+    - Mejor/promedio caso: O(log n).
+    - Peor caso (insertar datos ya ordenados): O(n).
+    tamanio: O(1). unionCon: O(m*h).
+*/
 template <typename T>
 class Conjunto {
 public:
