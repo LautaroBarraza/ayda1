@@ -17,7 +17,7 @@ cd ayda1
 
 ## Probar el codigo
 
-`main.cpp` prueba las tres implementaciones con la misma bateria de casos.
+`main.cpp` para probar las tres implementaciones con los mismos casos.
 
 ```bash
 g++ main.cpp
